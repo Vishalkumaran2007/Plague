@@ -1,3 +1,4 @@
+import cors from 'cors';
 import 'dotenv/config';
 import express from "express";
 import { createServer as createViteServer } from "vite";
@@ -11,6 +12,7 @@ const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
+  app.use(cors());
   const PORT = 3000;
 
   app.use(express.json({ limit: '100mb' }));
